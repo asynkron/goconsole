@@ -47,7 +47,6 @@ func (cons *Console) Run() {
 		if err != nil {
 			panic("Error reading console input")
 		}
-		parts := strings.Split(text, " ")
 
 		for _, command := range cons.commands {
 			prefix := command.Name + " "
