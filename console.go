@@ -2,7 +2,6 @@ package console
 
 import (
 	"bufio"
-	"fmt"
 	"os"
 	"strings"
 )
@@ -49,7 +48,6 @@ func (cons *Console) Run() {
 			panic("Error reading console input")
 		}
 		parts := strings.Split(text, " ")
-		fmt.Println(parts)
 
 		for _, command := range cons.commands {
 			prefix := command.Name + " "
