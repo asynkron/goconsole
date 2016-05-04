@@ -47,16 +47,18 @@ func (cons *Console) Run() {
 		if err != nil {
 			panic("Error reading console input")
 		}
-
+		found := false
 		for _, command := range cons.commands {
 			prefix := command.Name + " "
 			if strings.HasPrefix(text, prefix) {
-				parts := strings.Split(text," ")
+				parts := strings.Split(text, " ")
 				command.Callback(parts[1])
+				found = true
 				break
 			}
 		}
-		cons.empty(text)
-
+		if !found {
+			cons.empty(text)
+		}
 	}
 }
